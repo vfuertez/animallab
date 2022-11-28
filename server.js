@@ -10,11 +10,14 @@ app.use(morgan("dev"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+const AnimalRouter = require("./controllers/animals");
 
 // ROutes
 app.get("/", (req, res) => {
   res.send("server is working");
 });
+
+app.use("/animals", AnimalRouter);
 
 // Server listener
 app.listen(PORT, () => {
