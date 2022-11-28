@@ -28,6 +28,12 @@ router.get("/new", (req, res) => {
 });
 
 // Destroy Route
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  Animal.findByIdAndRemove(id, (err, animal) => {
+    res.redirect("/animals");
+  });
+});
 
 // Update Route
 
