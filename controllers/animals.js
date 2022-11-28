@@ -37,6 +37,14 @@ router.delete("/:id", (req, res) => {
 
 // Update Route
 
+router.put("/:id", (req, res) => {
+    req.body.extinct = req.body.extinct === "on" ? true : false
+    // {new: true} need this to update th page
+    Animal.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedAnimal) => {
+        res.redirect(`/animals/${req.params.id}`)
+    })
+})
+
 // Create Route
 router.post("/", (req, res) => {
   req.body.extinct = req.body.extinct === "on" ? true : false;
@@ -47,6 +55,13 @@ router.post("/", (req, res) => {
 });
 
 // Edit Route
+
+router.get("/:id/edit", (req, res) => {
+    const id = req.params.id
+    Animal.findById(id, (err, animal) => {
+        res.render("animals/edit.ejs", {animal})
+    })
+})
 
 // Show route
 router.get("/:id", (req, res) => {
