@@ -18,16 +18,27 @@ router.get("/", async (req, res) => {
   const animals = await Animal.find({}).catch((error) =>
     errorHandler(error, res)
   );
-
   res.render("animals/index.ejs", { animals });
 });
+
 // New Route
+
+router.get("/new", (req, res) => {
+  res.render("animals/new.ejs");
+});
 
 // Destroy Route
 
 // Update Route
 
 // Create Route
+router.post("/", (req, res) => {
+  req.body.extinct = req.body.extinct === "on" ? true : false;
+  Animal.create(req.body, (err, createdAnimal) => {
+    console.log(createdAnimal);
+    res.redirect("/animals");
+  });
+});
 
 // Edit Route
 
