@@ -10,3 +10,13 @@ app.use(morgan("dev"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+// ROutes
+app.get("/", (req, res) => {
+  res.send("server is working");
+});
+
+// Server listener
+app.listen(PORT, () => {
+  console.log(`Listening to port ${PORT}`);
+});
