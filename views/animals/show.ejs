@@ -4,19 +4,28 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Animal Lab</title>
   </head>
   <body>
-    <h1><%= animal.species %></h1>
 
+    <div>
+    <h1><%= animal.species %></h1>
+</div>
+
+<div>
     <h2>Extinct: <%= animal.extinct ? "Yes" : "NO" %></h2>
     <h2>Location: <%= animal.location %></h2>
     <h2>Life Expectancy: <%= animal.lifeExpectancy %></h2>
-
-    <form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
-        <input type="submit" value="delete">
-    </form>
+</div>
+    
 <a href="/animals/<%=animal._id %>/edit "><button> Update</button> </a>
+
+<br> <br>
+
+<form action="/animals/<%= animal._id %>?_method=DELETE" method="POST">
+        <input type="submit" value="Delete">
+    </form>
     <a href="/animals"> <h4>Back To Main Page</h4></a>
+
   </body>
 </html>

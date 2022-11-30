@@ -13,6 +13,8 @@ function errorHandler(error, res) {
 
 // Routes
 
+
+
 // Index Route
 router.get("/", async (req, res) => {
   const animals = await Animal.find({}).catch((error) =>
@@ -93,7 +95,7 @@ router.get("/seed", async (req, res) => {
       lifeExpectancy: 15,
     },
     {
-      species: "Eagle",
+      species: " Bald Eagle",
       extinct: false,
       location: "USA",
       lifeExpectancy: 25,

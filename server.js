@@ -12,9 +12,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 const AnimalRouter = require("./controllers/animals");
 
-// ROutes
+// Routes
 app.get("/", (req, res) => {
-  res.send("server is working");
+  res.redirect("/animals");
 });
 
 app.use("/animals", AnimalRouter);

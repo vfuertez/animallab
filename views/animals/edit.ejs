@@ -1,12 +1,43 @@
-<h1>Update</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animals Lab</title>
+</head>
+<body>
+
+  <h1>Update</h1>
 
 <form action="/animals/<%= animal._id %>?_method=PUT" method="POST">
-  name:<input type="text" name="species" placeholder="species" value="<%= animal.species %>"> 
+<div>
+  <label for="newName"> Name: </label>
+  <input type="text" id="newName" name="species" placeholder="species" value="<%= animal.species %>"> 
+</div> <br>
+
+  <div>
+    <label for="newLocation">Location:</label>
+  <input type="text" id="newLoacation" name="location" placeholder="place" value="<%= animal.location %>"/>
+</div> <br>
+
+  <div>
+    <label for="newLife">Life Expectancy:</label>
+   <input type="text" id="newLife" name="lifeExpectancy" placeholder="species" value="<%= animal.lifeExpectancy %>" />
+  </div> <br>
+
+<div>
+    <label></label>
   extinct:<input type="checkbox" name="extinct" <%= animal.extinct ? "checked" : ""  %>/> 
-  location:<input type="text" name="location" placeholder="place" value="<%= animal.location %>"/>
-   lifeExpectancy:<input type="text" name="lifeExpectancy" placeholder="species" value="<%= animal.lifeExpectancy %>" />
-  
+</div> <br>
+
+   <div>
   <input type="submit" value="Update" />
+</div>
+
 </form>
 
 <a href="/animals"> <h4>Back To Main Page</h4></a>
+  
+</body>
+</html>
