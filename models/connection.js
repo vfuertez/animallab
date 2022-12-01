@@ -12,7 +12,7 @@ mongoose.connect(DATABASE_URL, CONFIG);
 mongoose.connection
   .on("open", () => console.log("Connected to Mongo"))
   .on("close", () => console.log("Disconnected from Mongo"))
-  .on("error", () => console.log(error));
+  .on("error", (error) => console.log(error));
 
 // export the mongoose object
 module.exports = mongoose;
